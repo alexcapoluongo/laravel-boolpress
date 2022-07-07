@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('slug',36);
             $table->timestamps();
 
+            //collegamento tabella categoria con utente
             // $table->foreign('')
             // ->references('id')
             // ->on('users'); 

@@ -3,6 +3,7 @@
 @section('content')
     <h1>Titolo: {{ $post->title }}</h1>
     <h2>Contenuto:</h2>
+    <h3>Categoria {{$category->name}}</h3>
     <p> {{ $post->content }}</p>
     <p> {{ $post->slug }} </p>
 
