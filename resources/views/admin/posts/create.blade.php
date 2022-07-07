@@ -8,11 +8,11 @@
 
         <div class="form-group">
           <label for="title">Title</label>
-          <input type="title" class="form-control" id="title" placeholder="Write a title">
+          <input type="title" name="title" class="form-control" id="title" placeholder="Write a title" value="{{ old('title') }}">
         </div>
         <div class="form-group">
           <label for="content">Content</label>
-          <input type="content" class="form-control" id="content" placeholder="Write a content">
+          <input type="content" class="form-control" name="content" id="content" placeholder="Write a content" value="{{ old('content')}}">
         </div>
         <button type="submit" class="btn btn-primary mt-3">Create</button>
     </form>

@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
     public function index() {
         $user=Auth::user();
+        $userInfo=$user->userInfo;
         return view('admin.home', compact('user'));
     }
 }

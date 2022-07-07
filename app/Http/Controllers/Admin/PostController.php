@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class PostController extends Controller
 {
@@ -36,15 +38,15 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $request->validate($this->getValidationRules());
+        // $request->validate($this->getValidationRules());
 
-        $data = $request->all();
+        $post_data = $request->all();
         $post = new Post();
-        $post->fill($data);
+        $post->fill($post_data);
+        $post->slug= Str::slug($post->title, '-');
         $post->save();
 
-        return redirect()->route('admin.posts.show', ['post'=>$post->id]);
-
+        return redirect()->route('admin.posts.show', ['post' => $post->id]);
     }
 
     /**
