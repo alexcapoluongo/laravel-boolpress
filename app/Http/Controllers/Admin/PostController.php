@@ -48,6 +48,10 @@ class PostController extends Controller
         $post->slug= Str::slug($post->title, '-');
         $post->save();
 
+        if(isset($post_data['tags'])) {
+            $post->tags()->sync($post_data['tags']);
+        }
+
         return redirect()->route('admin.posts.show', ['post' => $post->id]);
     }
 
