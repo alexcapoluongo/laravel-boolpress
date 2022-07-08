@@ -13,12 +13,13 @@
         no one
     @endforelse
     <br>
-    <a class="btn btn-primary" href="{{ route('admin.posts.edit', ['post'=> $post->id])}}">Edit</a>
+    <div class="d-flex">
+    <a class="btn btn-primary mx-3" href="{{ route('admin.posts.edit', ['post'=> $post->id])}}">Edit</a>
+        <form action="{{ route('admin.posts.destroy', ['post' => $post->id]) }}" method="post">
+            @method('DELETE')
+            @csrf
 
-    <form action="{{ route('admin.posts.destroy', ['post' => $post->id]) }}" method="post">
-        @method('DELETE')
-        @csrf
-        
-        <button class="btn btn-danger" type="submit">Cancella</button>
-    </form>
+            <button class="btn btn-danger" type="submit">Cancella</button>
+        </form>
+    </div>
 @endsection
