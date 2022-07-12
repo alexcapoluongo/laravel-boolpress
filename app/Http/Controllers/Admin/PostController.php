@@ -110,7 +110,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $post->tags()->sync([]);
         $post->delete();
-        
+            
         return redirect()->route('admin.posts.index');
     }
 
