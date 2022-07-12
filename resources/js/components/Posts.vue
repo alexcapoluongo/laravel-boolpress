@@ -10,7 +10,7 @@
         <img class="card-img-top" src="" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">{{ post.title }}</h5>
-            <p class="card-text">{{ post.content }}</p>
+            <p class="card-text">{{ troncateText(post.content, 50) }}</p>
         </div>
         <!-- <ul class="list-group list-group-flush">
             <li class="list-group-item">Cras justo odio</li>
@@ -46,6 +46,12 @@ export default {
             .then(resp=> {
                 this.posts = resp.data.results;
             })
+        },
+        troncateText(text, maxCharNumber) {
+            if (text.length > maxCharNumber) {
+                return text.substr(0, maxCharNumber) + '...';
+            }
+            return text;
         }
     }
 }

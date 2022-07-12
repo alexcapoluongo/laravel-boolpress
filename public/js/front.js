@@ -1925,6 +1925,13 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('http://127.0.0.1:8000/api/posts').then(function (resp) {
         _this.posts = resp.data.results;
       });
+    },
+    troncateText: function troncateText(text, maxCharNumber) {
+      if (text.length > maxCharNumber) {
+        return text.substr(0, maxCharNumber) + '...';
+      }
+
+      return text;
     }
   }
 });
@@ -1991,7 +1998,7 @@ var render = function render() {
       staticClass: "card-title"
     }, [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v(_vm._s(post.content))])])])]);
+    }, [_vm._v(_vm._s(_vm.troncateText(post.content, 50)))])])])]);
   }), 0)]);
 };
 
