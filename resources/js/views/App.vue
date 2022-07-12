@@ -4,17 +4,18 @@
       <h1 class="mt-5">front office</h1>
       <a class="mt-5" href="admin">Esegui il Login</a>
     </div>
-    <Intro/>
+
+    <Posts/>
   </div>
 </template>
 
 <script>
-import Intro from '../components/Intro.vue'
+import Posts from '../components/Posts.vue';
 
 export default {
   name: 'App',
   components: {
-    Intro,
+    Posts
 }
 }
 </script>
