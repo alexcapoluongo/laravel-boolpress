@@ -1,21 +1,20 @@
 <template>
   <div>
     <div class="d-flex justify-content-around">
-      <h1 class="mt-5">front office</h1>
+      <Header/>
       <a class="mt-5" href="admin">Esegui il Login</a>
     </div>
-
-    <Posts/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Posts from '../components/Posts.vue';
+import Header from "../components/Header.vue";
 
 export default {
   name: 'App',
   components: {
-    Posts
+    Header,
 }
 }
 </script>
