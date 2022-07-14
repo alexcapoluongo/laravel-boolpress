@@ -2054,6 +2054,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "OnePost",
+  data: function data() {
+    return {
+      post: null
+    };
+  },
   created: function created() {
     this.getPostDetails();
   },
@@ -2065,13 +2070,7 @@ __webpack_require__.r(__webpack_exports__);
       var slug = this.$route.params.slug; //call axios to api, adding slug to api url
 
       axios.get("/api/posts/".concat(slug)).then(function (resp) {
-        if (resp.data.success) {
-          _this.post = resp.data.results;
-        } else {
-          _this.$router.push({
-            name: "notfound"
-          });
-        }
+        _this.post = resp.data.results;
       });
     }
   }
@@ -2395,7 +2394,9 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h1", [_vm._v(_vm._s(_vm.post.title))])]);
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("h1", [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))])]);
 };
 
 var staticRenderFns = [];
